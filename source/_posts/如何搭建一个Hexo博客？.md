@@ -90,11 +90,11 @@ tags: [Hexo，Github，Git]
 在某些情况（尤其是更换主题后），如果发现对站点的更改无论如何也不生效，则可能需要运行该命令。
 # 将网站部署到GitHub上
 1. 在 GitHub 上新建一个空 repo，repo 名称是 [`你的用户名.github.io`] （请将你的用户名替换成真正的用户名）。
-2. 修改 `_config.yml` 配置文件，编辑网站配置。
-* 把第六行的 `title` 改为你想要的网站标题
-* 把第九行的 `author` 改为你的名字
-* 把最后一行的 `type:` 后面加上 ` git` ，即 `type: git`（注意`git`前有一个空格）。
-* 在最后一行下面新增一行，缩进与`type`平齐，内容为 `repo: [你的GitHub仓库地址]`，如`repo: git@github.com:xxx.github.io`。
+2. 修改 `_config.yml` 配置文件，编辑网站配置。  
+&nbsp;* 把第六行的 `title` 改为你想要的网站标题  
+&nbsp;* 把第九行的 `author` 改为你的名字  
+&nbsp;* 把最后一行的 `type:` 后面加上 ` git` ，即 `type: git`（注意`git`前有一个空格）。  
+&nbsp;* 在最后一行下面新增一行，缩进与`type`平齐，内容为 `repo: [你的GitHub仓库地址]`，如`repo: git@github.com:xxx.github.io`。
 3. 安装Git部署插件：  
 `$ npm install hexo-deployer-git --save`
 4. `$ hexo deploy`
