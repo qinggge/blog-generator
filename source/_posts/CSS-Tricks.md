@@ -93,5 +93,8 @@ div `three` 设置向左或向右浮动都可以实现该布局。
 # 一些不常见的CSS样式设置
 1. 使用 `user-select: none;` 属性，可以禁止用户选中文本：<span class="select">我无法被选中</span>。  
 2. 使用 `::selection` 选择器，可以使被选中的文本变化样式：<span class="eg">我被选中可以变色！！</span>（只能向 `::selection` 选择器应用少量 CSS 属性：`color`、`background`、`cursor` 以及 `outline`）。
-3. 模糊文本设置：<span class="blur">我怎么这么模糊</span>。
+3. 模糊文本设置：<span class="blur">我怎么这么模糊</span>，给元素添加上样式   
+`color: transparent;`   
+`text-shadow:  0 0 5px rgba(0,0,0,0.5);`  
+即可。
 <style>.eg::selection{color: red;}.select{user-select: none; font-weight: bold;}.blur{color: transparent; text-shadow: 0 0 5px rgba(0,0,0,0.5);}</style> 
