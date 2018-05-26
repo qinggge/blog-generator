@@ -29,10 +29,7 @@ Number(null)  // 0
 `parseInt()` 函数将其第一个参数转换为字符串，解析它，并返回一个整数或NaN。如果不是NaN，返回的值将是作为指定基数（基数）中的数字的第一个参数的整数。  
 
 1. 语法  
-
-```JavaScript
-parseInt(string,radix)
-``` 
+<code>parseInt(string,radix)</code>
 
 2. 参数  
 `string`  
