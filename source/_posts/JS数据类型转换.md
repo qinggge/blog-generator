@@ -42,7 +42,6 @@ Number(null)  // 0
     * 如果字符串 `string` 以其他任何值开头，则基数是10（十进制）
 
 3. 示例  
-
 ```JavaScript
 parseInt('10')  // 10
 parseInt('0x12')  // 18 十六进制
@@ -59,11 +58,9 @@ parseInt('19', 18)  // 27 十八进制
 parseInt('2', 2)  // NaN 字符串数字大于基数
 parseInt('11', 1)  // NaN 基数不在2和36之间
 parseInt('abc123')  // NaN
-```     
-
+```
 4. 拓展  
 `['1','2','3'].map(parseInt)` 输出什么？  
-
 ```JavaScript
 ['1','2','3'].map(parseInt)
 
@@ -72,9 +69,9 @@ parseInt('abc123')  // NaN
 ['1','2','3'].map(function(ele,index){
     return parseInt(ele,index)
 })
-```
 
-```JavaScript
+// 即
+
 1. parseInt('1', 0)  // 基数为0时，根据参数 `radix` 里的描述可知为十进制，返回 1
 2. parseInt('2', 1)  // 基数为1，不在2-36的范围内，输出NaN
 3. parseInt('3', 2)  // 基数为2，字符串3大于基数，输出NaN
@@ -84,7 +81,6 @@ parseInt('abc123')  // NaN
 
 ## parseFloat() 函数
 `parseFloat()` 函数解析一个字符串参数并返回一个浮点数。  
-
 e.g.  
 ```JavaScript
 parseFloat('3.14')  // 3.14
