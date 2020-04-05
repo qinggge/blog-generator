@@ -30,9 +30,9 @@ console.log(2) // 永远不执行
 简而言之，主线程只会做一件事，就是执行事件、从任务队列里取任务、再执行事件、再取任务。当任务队列为空时，就会等待任务队列变为非空。而且主线程只有将当前的任务执行完成后，才会去取下一个任务。这种机制就叫做 **事件循环（event loop）** 机制，取一次任务并执行的过程叫做一次循环。  
   
 事件循环示意图如下：  
-![eventLoop](eventLoop.png) 
+![eventLoop](/blog/images/eventLoop.png) 
 上图中，主线程运行的时候，产生堆（heap）和栈（stack），栈中的代码会调用各种API（DOM操作、ajax请求、定时器等），这些API会在任务队列中加入各种事件（onClick、onLoad、onDone等）。当主线程执行完栈中的代码，就会去读取任务队列，然后依次执行那些事件对应的**回调函数**。  
-![eventLoop](eventLoop.gif) 
+![eventLoop](/blog/images/eventLoop.gif) 
 
 ```JavaScript
 console.log('Hi')
@@ -85,7 +85,7 @@ getUser(function(response){
 ```
 嵌套越多，代码越多，这就是**回调地狱（callback hell）**。  
 一个例子：  
-![callbackHell](callbackHell.jpg)  
+![callbackHell](/blog/images/callbackHell.jpg)  
 
 回调地狱不仅可读性差，出现问题也不好调试，也会导致性能下降，那么应如何避免？  
 
@@ -279,7 +279,7 @@ iter.next() // {value: undefined, done: true}
 举个例子：
 ```JavaScript
 var a = 'yeah'
-var b = a[Symbol.iterator]()
+var b = a[Symbol.iterator](/blog/images/)
 
 b.next() // {value: 'y', done: false}
 b.next() // {value: 'e', done: false}
