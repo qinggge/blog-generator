@@ -42,8 +42,7 @@ setTimeout(function cb() {
 },0)
 
 console.log('SJS')
-```  
-  
+```
 ## 二、回调（callback）
 因为异步需要等待结果，而返回结果后需要有所反应，因此就需要有回调函数。  
 ### 1. 什么是回调？
@@ -108,8 +107,7 @@ var promise = new Promise(function(resolve, reject){
     reject(error);
   }
 });
-```  
-
+```
 ### 2. `Promise` 的生命周期
 `Promise` 有三种状态：**进行中（pending）**、**完成态（fulfilled）** 和 **拒绝态（rejected）**。  
 一开始，先设置好等状态从 `pending` 变成 `fulfilled` 和 `rejected` 的预案（当成功后做什么，失败时做什么）。  
@@ -187,7 +185,6 @@ function 第二次获取用户信息(){
 
 // 只在获取用户信息失败时调用函数
 ```
-
 ### 5. `Promise. (all/race)`
 ```JavaScript
 // 只有当所有Promise实例的状态都变为fulfilled，才会被resolve。
@@ -200,8 +197,7 @@ Promise.all([获取用户信息1(),获取用户信息2(),获取用户信息3()])
   })
 
 // ['小黑','小白','小灰']
-```  
-  
+```
 ```JavaScript
 // race(赛跑)，只要有一个Promise实例的状态 率先 发生改变，就将那个Promise实例的返回值传递给回调函数。
 Promise.race([获取用户信息('小白'),定时器(5000)])
@@ -325,8 +321,7 @@ function* gen(x){
 var g = gen(1)
 g.next() // { value: 3, done: false }
 g.next(2) // { value: 2, done: true }
-```  
-
+```
 ### 2. 异步处理
 `yield` 表达式可以暂停函数执行， `next` 方法可以恢复函数执行，因此生成器函数就适合将异步任务同步化。
 ```JavaScript
@@ -354,7 +349,7 @@ result.then(function(v){
   }, function(error){
   console.log(error)
 })
-``` 
+```
 上例中，当第一次调用 `next` 方法时，启动了遍历器对象，此时返回一个包含 `value` 和 `done` 的对象。因为 `getUser()` 方法返回了一个 `Promise` 实例，所以 `value` 的值就是一个 promise 对象，因此可以使用 `then` 方法获取到通过 `resolve` 传递过来的值。  
 但是，生成器函数每次都需要通过 `g.next()` 的方法来执行，所以需要一个自动任务执行器来自动 `g.next()`，如下：  
 ```JavaScript
@@ -382,7 +377,7 @@ run(function *() {
 })
 
 // 91
-```  
+```
 自动执行器的出现使得 `Generator` 处理异步的操作，使得世界一下子清爽了好多，因此这种操作方法也被写入了规范，即 `async` / `await` 。
 
 ## 六、 `async` / `await` 
@@ -421,7 +416,7 @@ var asycnGetUser = asycn function () {
   `Generator` 函数的执行必须要依靠执行器，而 `async` 函数自带执行器。也就是说，`async` 函数的执行，与普通函数一模一样，只要一行。  
     ```JavaScript
       asycnGetUser()
-    ```  
+    ```
     调用 `asycnGetUser` 函数，就会自动执行，而不需要像 `Generator` 函数需要 `next`。  
 
 2. 更好的语义
@@ -458,7 +453,7 @@ getUserId('小白').then(function (result) {
 
     fn().then((data)=>{console.log(data)})
     // 'Hello world!'
-    ```  
+    ```
     `async` 函数内部抛出错误，会导致返回的 `Promise` 对象变为 `rejected` 状态，抛出的错误对象会被 `catch` 回调函数接收到。
     ```JavaScript
     async function fn() {
@@ -470,8 +465,7 @@ getUserId('小白').then(function (result) {
       e => console.log(e)
     )
     // Error: 出错了
-    ```  
-  
+    ```
 2. `Promise` 的状态变化
   `async` 函数返回的 `Promise` 对象，必须等到内部所有 `await` 命令后面的 `Promise` 对象执行完，才会发生状态改变，除非遇到 `return` 或抛出错误。也就是说，只有 `async` 函数内部的异步操作执行完，才会执行 `then` 方法指定的回调函数。
     ```JavaScript
@@ -483,8 +477,7 @@ getUserId('小白').then(function (result) {
 
     getUserId('小白').then(msg=>console.log(msg))
     // 只有当两个 await 操作都执行完，才会执行 then 里的 console.log
-    ```  
-  
+    ```
 3. `await` 命令
   正常情况下，`await` 命令后面是一个 `Promise` 对象。如果不是，就返回对应的值。
     ```JavaScript
